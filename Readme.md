@@ -36,6 +36,15 @@ PictureProvider p = new PictureProvider();
 IPicture pic = p.GetPicture("PathToImage.jpg");
 ```
 Luego, se deberan generar una serie de Pipes & Filters para transformar la imagen. Finalmente, se deberá guardar una copia de la imagen mediante el siguiente código:
+Finalmente, se deberá guardar una copia de la imagen mediante el siguiente código:
+
+```c#
+public void Persist(IPicture image, string pathToPersist)
+{
+    PictureProvider provider = new PictureProvider();
+    this.provider.SavePicture(image,pathToPersist);
+}
+```
 
 ## Ejercicio 2
 En el primer ejercicio, pudimos ver cómo utilizar pipes & filters para aplicar una serie de transformaciones secuenciales sobre una imagen. El problema es que no vimos el resultado en ningún lado ya que no guardamos la imagen transformada!
