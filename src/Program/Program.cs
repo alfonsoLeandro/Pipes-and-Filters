@@ -13,7 +13,7 @@ namespace CompAndDel
             IPicture firstPicture = pictureProvider.GetPicture("perro foto.jpg");
 
             IPicture resultPicture = new PipeSerial(new FilterGreyscale(), new PipeSerial( 
-                new FilterNegative(), new PipeNull())
+                new FilterSaveImage(),new PipeSerial( new FilterNegative(), new PipeNull()))
             ).Send(firstPicture);
 
             pictureProvider.SavePicture(resultPicture, "perro foto final.jpg");
