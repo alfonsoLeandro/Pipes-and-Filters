@@ -6,6 +6,9 @@ namespace CompAndDel
 {
     public class PictureProvider
     {
+
+        TwitterSender twitterSender=new TwitterSender();
+        
         public IPicture GetPicture(string imgPath)
         {
             Picture p = new Picture(1,1);
@@ -25,6 +28,7 @@ namespace CompAndDel
         }
         public void SavePicture(IPicture p, string path)
         {
+            
             int width = p.Width;
             int height = p.Height;
             using(Image<Rgba32> img = new Image<Rgba32>(width, height)) // creates a new image with all the pixels set as transparent 
@@ -38,7 +42,12 @@ namespace CompAndDel
                     }
                 }
                 img.Save(path);
-            } 
+
+             
+            }
+            twitterSender.publishFilter(path);
+            
+
             
         }
     }

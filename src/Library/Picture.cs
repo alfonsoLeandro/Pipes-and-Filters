@@ -9,6 +9,7 @@ namespace CompAndDel
     public class Picture : IPicture
     {
         private Color[,] matrizColores;
+        private string path;
        
         /// <summary>
         /// Constructor de imagen
@@ -99,6 +100,11 @@ namespace CompAndDel
                 }
             }
             return pictureClone;
+        }
+        public string Path 
+        {
+            get { return this.Path; }
+            set { path=value; } 
         }
     }
 }
