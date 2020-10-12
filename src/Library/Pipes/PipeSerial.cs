@@ -10,7 +10,7 @@ namespace CompAndDel.Pipes
     {
         protected IFilter filtro;
         protected IPipe nextPipe;
-        
+       
         /// <summary>
         /// La cañería recibe una imagen, le aplica un filtro y la envía a la siguiente cañería
         /// </summary>
@@ -41,8 +41,10 @@ namespace CompAndDel.Pipes
         /// <param name="picture">Imagen a la cual se debe aplicar el filtro</param>
         public IPicture Send(IPicture picture)
         {
+         
             picture = this.filtro.Filter(picture);
             return this.nextPipe.Send(picture);
+
         }
     }
 }
